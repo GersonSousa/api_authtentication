@@ -12,4 +12,8 @@ module.exports = {
   database,
   host,
   dialect,
+  define: {
+    timestamps: true,
+    underscored: true,
+  },
 };

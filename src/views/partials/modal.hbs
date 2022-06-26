@@ -1,0 +1,32 @@
+<div class='modal-container'>
+  <div class='modal'>
+    <div class='modal-header'>
+      <div class='modal-text'>
+        <span>Contestar avaliação</span>
+      </div>
+      <div class='modal-close'>
+        <button onclick='closeModal()'>X</button>
+      </div>
+    </div>
+    <div class='modal-body'>
+      <div class='input-block'>
+        <label for='name'>Parecer do auditor</label>
+        <textarea name='' id='' disabled>{{text}}</textarea>
+      </div>
+      <form action='' method='post' id='contestar'>
+        <div class='input-block'>
+          <label for='name'>Enviar comentário de contestação</label>
+          <textarea name='' id=''></textarea>
+        </div>
+      </form>
+    </div>
+
+    <div class='modal-footer'>
+      <span>text</span>
+      <div class='modal-footer-btn'>
+        <strong onclick='closeModal()'>Voltar</strong>
+        <input type='submit' form='contestar' value='Contestar avaliação' />
+      </div>
+    </div>
+  </div>
+</div>

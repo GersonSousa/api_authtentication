@@ -3,6 +3,12 @@ const jwt = require('jsonwebtoken');
 /* eslint-disable camelcase */
 const User = require('../models/User');
 
+const index = (req, res) => {
+  res.render('Auth/login', {
+    PageTitle: 'Allrede Telecom - Login',
+  });
+};
+
 const login = async (req, res) => {
   try {
     const { email = '', password = '' } = req.body;
@@ -24,19 +30,26 @@ const login = async (req, res) => {
     if (!(await bcrypt.compare(password, user.password_hash))) {
       return res.status(400).json({ Erros: ['Senha inválida'] });
     }
-    const { id } = user;
-    const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
+    const { id, name } = user;
+    const token = jwt.sign({ id, email, name }, process.env.TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_TIME,
     });
 
-    return res.status(200).json({ userToken: token });
+    return res
+      .cookie('userToken', token, {
+        httpOnly: true,
+      })
+      .redirect('meu-painel');
   } catch (error) {
     return res.json('algo de errado não esta certo');
   }
 };
-
-const logout = async (req, res) => {
-  res.send('oi2');
+const logout = (req, res) => {
+  try {
+    return res.clearCookie('userToken').redirect('/v1');
+  } catch (err) {
+    return res.status(400).json({ msg: 'houver um erro' });
+  }
 };
 
-module.exports = { login, logout };
+module.exports = { index, login, logout };

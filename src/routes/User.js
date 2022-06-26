@@ -2,9 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-const { store, index } = require('../controllers/User');
+const { store, meuPainel } = require('../controllers/User');
+const { authorization } = require('../middlewares/loginRequired');
 
 router.post('/users', store);
-router.get('/users', index);
+router.get('/meu-painel', authorization, meuPainel);
 
 module.exports = router;

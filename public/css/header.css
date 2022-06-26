@@ -1,0 +1,78 @@
+.page-header {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-primary-dark);
+  height: 8rem;
+}
+
+.page-header .top-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 4rem;
+}
+.page-header .top-bar-content .back {
+  height: 2.5rem;
+}
+
+.page-header .top-bar-content span {
+  font-size: 1.5rem;
+  font-family: Archivo;
+  font-weight: 500;
+  color: var(--color-text-in-primary);
+}
+
+.avatar {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-avatar {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+}
+
+.avatar img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+}
+
+.avatar-menu {
+  position: absolute;
+  top: 85px;
+  right: 30px;
+  padding: 10px 20px;
+  border-radius: 0.7rem;
+  transition: 0.5s;
+  background: var(--color-title-in-primary);
+  display: none;
+}
+
+.menu-itens {
+  display: block;
+}
+
+.menu-itens li {
+  margin: 0.5rem 1rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.menu-itens li a {
+  color: var(--color-text-title);
+}
+
+.top-logo img {
+  height: 2rem;
+}
+
+.page-header-content {
+  height: auto;
+}

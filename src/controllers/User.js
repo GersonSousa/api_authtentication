@@ -19,16 +19,14 @@ const store = async (req, res) => {
   }
 };
 
-const index = async (req, res) => {
-  try {
-    const user = await User.findAll();
-
-    user.password = undefined;
-
-    return res.status(200).json({ Usuários: user });
-  } catch (error) {
-    return res.json(error);
-  }
+const meuPainel = async (req, res) => {
+  res.render('Colaborador/meu-painel', {
+    PageTitle: 'Allrede Telecom - Meu painel',
+    textTop: 'Meu Painel',
+    nome: 'Antonio Gerson de Sousa Silva',
+    emoji: '😊',
+    rank: '1º',
+  });
 };
 
-module.exports = { store, index };
+module.exports = { store, meuPainel };

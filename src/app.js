@@ -9,5 +9,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use('/v1', require('./routes/User'));
+app.use('/v1', require('./routes/Auth'));
 
 module.exports = { app };

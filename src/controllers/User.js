@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const User = require('../models/User');
 
 // @descrição
@@ -6,13 +7,13 @@ const User = require('../models/User');
 
 const store = async (req, res) => {
   try {
-    const { name, email } = req.body;
+    const { name, email, password } = req.body;
 
-    const user = await User.create({ name, email });
+    const user = await User.create({ name, email, password });
 
     return res.status(200).json(user);
   } catch (e) {
-    return res.status(400).json(e.errors.map((erro) => erro.message));
+    return res.status(401).json(e.errors.map((erro) => erro.message));
   }
 };
 
